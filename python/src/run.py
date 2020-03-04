@@ -1,11 +1,10 @@
 from app import application
 from users import Users
 from flask import render_template
-from sqlalchemy import desc
 
 @application.route('/list')
 def index():
-    users = Users.query.order_by(desc(Users.id)).all()
+    users = Users.query.order_by(Users.id).all()
     return render_template('list.html', users=users)
 
 if __name__ == '__main__':
